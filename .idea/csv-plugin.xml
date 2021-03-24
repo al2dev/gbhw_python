@@ -10,7 +10,21 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\lesson_10.py">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\lesson_9.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\test.py">
           <value>
             <Attribute>
               <option name="separator" value=":" />
