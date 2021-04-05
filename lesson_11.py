@@ -49,8 +49,8 @@ class Date:
 
 
 class OwnZero(Exception):
-    def __init__(self):
-        self.txt = 'Деление на 0 недопустимо'
+    def __init__(self, txt):
+        self.txt = txt
 
 
 def try_division():
@@ -60,13 +60,13 @@ def try_division():
             break
         b = input('enter b: ')
         try:
-            if b == 0:
-                raise OwnZero()
+            if int(b) == 0:
+                raise OwnZero('Деление на 0 недопустимо')
             print(int(a) / int(b))
-        except ZeroDivisionError:
-            print(OwnZero)
+        except OwnZero as err:
+            print(err)
         finally:
-            print('again')
+            print('try again')
 
 
 '''
@@ -78,17 +78,33 @@ def try_division():
 
 
 class NotNumber(Exception):
-    def __init__(self):
-        self.txt = 'Вводите только числа'
+    def __init__(self, txt):
+        self.txt = txt
+
+
+def check_numbers(st):
+    try:
+        int(st)
+        return True
+    except ValueError:
+        raise NotNumber('Вводите только числа!')
+
 
 def enter_numbers():
     arr = []
     while True:
-        i = input('Enter number: ')
+        i = input('enter number: ')
         if i == 'stop':
             break
         else:
-            n = int(i)
+            try:
+                check_numbers(i)
+                arr.append(int(i))
+            except NotNumber as err:
+                print(err)
+            finally:
+                print('next number..')
+    print(arr)
 
 
 if __name__ == '__main__':
@@ -113,3 +129,4 @@ if __name__ == '__main__':
     # 3 task
     print('\n')
     print('Task 3')
+    enter_numbers()
