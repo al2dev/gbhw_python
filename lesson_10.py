@@ -55,10 +55,10 @@ class Biocell:
         return Biocell(self.cell * other.cell)
 
     def __floordiv__(self, other):
-        pass
+        return Biocell(self.cell // other.cell)
 
     def __truediv__(self, other):
-        pass
+        return Biocell(self.cell // other.cell)
 
 
 if __name__ == '__main__':
@@ -86,4 +86,5 @@ if __name__ == '__main__':
     del j_3
     print(Clothes.cloth)
 
+    # 3 task
 
